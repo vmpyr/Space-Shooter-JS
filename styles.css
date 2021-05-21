@@ -1,0 +1,6 @@
+body {
+    margin: 0;
+    background: url('./assets/bg.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+}

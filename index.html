@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space Shooter</title>
+    <link rel="shortcut icon" href="#">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+</head>
+<body>
+    <div class="fixed text-white text-lg ml-2 mt-1 select-none">
+        <span>Score: </span>
+        <span id="scoreKeeper">0</span>
+    </div>
+    <div class="fixed text-white text-lg ml-2 select-none mt-10">
+        <span id="highScoreKeeper">Highscore: 0</span>
+    </div>
+    <div class="fixed inset-0 flex items-center justify-center" id="welcomeScreen">
+        <div class="bg-white max-w-lg w-full p-5 text-center rounded-3xl">
+            <p class="text-lg mb-2 font-bold select-none">Welcome to Space Shooter!</p>
+            <p class="text-md mb-1 text-red-500 select-none">How to Play</p>
+            <p class="text-sm select-none">Use arrow keys to move around and left-click to shoot</p>
+            <p class="text-sm select-none mb-4">Press Esc to pause</p>
+            <div>
+                <button class="bg-green-400 w-80 p-2 rounded-full select-none" id="startGameBtn">Start Game</button>
+            </div>
+            <p class="text-sm select-none mt-5">Created by vmpyr</p>
+        </div>
+    </div>
+    <div class="fixed inset-0 flex items-center justify-center" id="gameStarter">
+        <div class="bg-white max-w-lg w-full p-5 text-center rounded-3xl">
+            <p class="text-md mb-2 select-none">Your Score</p>
+            <h1 class="text-5xl font-bold mb-5 select-none" id="finalScore">0</h1>
+            <p class="text-md text-red-700 mb-4 select-none" id="highScoreDisplayer">Highscore: 0</p>
+            <div>
+                <button class="bg-green-400 w-80 p-2 rounded-full select-none" id="restartGameBtn">Restart Game</button>
+            </div>
+        </div>
+    </div>
+    <div class="fixed inset-0 flex items-center justify-center" id="gameResumer">
+        <div class="bg-white max-w-lg w-full p-5 text-center rounded-3xl">
+            <p class="text-md mb-2 select-none">Game Paused!</p>
+            <div>
+                <button class="bg-green-400 w-80 p-2 rounded-full select-none" id="resumeGameBtn">Resume Game</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas>
+        <img id="playerShip" src="./assets/playerShip.png" alt="">
+        <img id="bulletImg" src="./assets/bullets.png" alt="">
+        <img id="enemyShip" src="./assets/enemy.png" alt="">
+        <img id="particles" src="./assets/particles.png" alt="">
+    </canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
