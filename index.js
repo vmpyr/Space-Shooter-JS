@@ -160,13 +160,13 @@ function init() {
     finalScore.innerHTML = score
 }
 
-let timeInterval = 2500
 function enterEnemy() {
     setInterval(() => {
         spawnLoc = canvas.width * Math.random()        
         span = (Math.random() * 45) + 40
         enemies.push(new enemy(spawnLoc, -50, span, spawnLoc))
-    }, timeInterval)
+    }, 2500)
+    setTimeout(() => {enterEnemy()}, 75000)
 }
 
 let animationId
@@ -200,7 +200,7 @@ function animate() {
         }
 
         const crashDist = Math.abs(player1.y - enemy1.y)
-        if (crashDist < 2 && player1.x < enemy1.x + span && player1.x + 75 > enemy1.x) {
+        if (crashDist < 5 && player1.x < enemy1.x + span && player1.x + 75 > enemy1.x) {
             cancelAnimationFrame(animationId)
             gameStarter.style.display = 'flex'
             finalScore.innerHTML = score
@@ -210,11 +210,6 @@ function animate() {
         bullets.forEach((bullet2, bulletIndex) => {
             const dist = Math.abs((bullet2.y - 25) - enemy1.y)
             if ((bullet2.x > (enemy1.x - 6)) && ((bullet2.x - 6) < (enemy1.x + span)) && (dist < 7)) {
-                if (timeInterval > 50) {
-                    timeInterval = timeInterval - 50
-                } else {
-                    timeInterval = 50
-                }
                 for (let i = 0; i < enemy1.span/4; i++) {
                     particles.push(new particle(bullet2.x, bullet2.y, Math.random()*20, (Math.random() - 0.5)*(Math.random()*20), (Math.random() - 0.5)*(Math.random()*20)))
                 }
